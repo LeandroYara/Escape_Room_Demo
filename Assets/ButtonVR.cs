@@ -9,7 +9,8 @@ public class ButtonVR : MonoBehaviour
 
     public GameObject Button;
     public UnityEvent onPress;
-    GameObject press;
+    public UnityEvent onRelease;
+    GameObject presser;
     bool IsPressed;
     // Start is called before the first frame update
     void Start()
@@ -22,10 +23,20 @@ public class ButtonVR : MonoBehaviour
         if (!IsPressed)
         {
             Button.transform.localPosition= new Vector3(transform.position.x, transform.position.y - 0.01f, transform.position.z);
-            press = other.gameObject;
-            onPress.Invoke();
             Button.GetComponent<Renderer>().material.color = Color.green;
+            presser = other.gameObject;
+            onPress.Invoke();
             IsPressed = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other == presser)
+        {
+            Button.transform.localPosition = new Vector3(transform.position.x, transform.position.y + 0.01f, transform.position.z);
+            Button.GetComponent<Renderer>().material.color = Color.red;
+            onRelease.Invoke();
+            IsPressed   = false;
         }
     }
 }

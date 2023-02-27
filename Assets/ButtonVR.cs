@@ -8,6 +8,7 @@ public class ButtonVR : MonoBehaviour
 {
 
     public GameObject Button;
+    public GameObject Fake_Wall;
     public UnityEvent onPress;
     public UnityEvent onRelease;
     GameObject presser;
@@ -23,6 +24,7 @@ public class ButtonVR : MonoBehaviour
         if (!isPressed)
         {
             Button.GetComponent<Renderer>().material.color = Color.green;
+            Fake_Wall.gameObject.SetActive(false);
             presser = other.gameObject;
             onPress.Invoke();
             isPressed = true;

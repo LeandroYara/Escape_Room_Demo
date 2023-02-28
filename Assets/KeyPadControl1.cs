@@ -25,7 +25,7 @@ public class KeyPadControl1 : MonoBehaviour
 
     public bool CheckIfCorrect(int combination)
     {
-        if (correctCombination == combination) 
+        if (combination == correctCombination) 
         {
             accessGranted = true;
             return true;

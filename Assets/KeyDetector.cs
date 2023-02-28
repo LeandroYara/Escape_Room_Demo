@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class KeyDetector : MonoBehaviour
 {
-    public GameObject puerta;
     private TextMeshPro display;
     private KeyPadControl1 keyPadControl1;
     // Start is called before the first frame update
@@ -65,11 +64,5 @@ public class KeyDetector : MonoBehaviour
                 KeyFeedBack.keyHit = true;
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

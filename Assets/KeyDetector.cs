@@ -21,7 +21,9 @@ public class KeyDetector : MonoBehaviour
     {
         if (other.CompareTag("KeypadButton"))
         {
-            var key = other.GetComponentInChildren<TextMeshPro>();
+            Canvas can = other.GetComponentInChildren<Canvas>();
+            var key = can.GetComponentInChildren<TextMeshPro>();
+
             if (key != null)
             {
                 var KeyFeedBack = other.gameObject.GetComponent<KeyFeedback>();
